@@ -1,0 +1,18 @@
+import re
+import socket
+vowels= "AaEeIiOoUu"
+
+s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)  
+s.bind(("0.0.0.0",5555))
+buff,addr=s.recvfrom(100)
+
+word_list=buff.split()
+longest_word=max(word_list,key =len)
+
+
+print longest_word
+s.sendto(longest_word, addr)  
+
+
+
+
